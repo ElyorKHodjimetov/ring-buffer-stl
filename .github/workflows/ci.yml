@@ -1,0 +1,22 @@
+name: CMake Build & Test
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Configure Debug
+        run: cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
+      - name: Build Debug
+        run: cmake --build build --config Debug
+      - name: Run tests Debug
+        run: ctest --test-dir build --config Debug --output-on-failure
+
+      - name: Configure Release
+        run: cmake -S . -B build-release -DCMAKE_BUILD_TYPE=Release
+      - name: Build Release
+        run: cmake --build build-release --config Release

@@ -1,0 +1,22 @@
+# CMake build directories
+/build/
+/build-release/
+
+# Visual Studio
+*.vcxproj*
+*.sln
+*.vcxproj.user
+*.vcxproj.filters
+*.opensdf
+*.sdf
+*.ipch/
+
+# Visual Studio Code
+.vscode/
+
+# OS-specific
+Thumbs.db
+.DS_Store
+
+# Catch2 single-header (оставляем catch.hpp)
+/tests/catch.hpp
